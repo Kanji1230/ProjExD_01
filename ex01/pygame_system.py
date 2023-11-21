@@ -7,8 +7,8 @@ def main():
     clock = pg.time.Clock()
     font = pg.font.Font(None, 80)
 
-    enn = pg.Surface((20, 20))
-    pg.draw.circle(enn, (255, 0, 0), (10, 10), 10)
+    enn = pg.Surface((20, 20))                          #紅い円のやつ
+    pg.draw.circle(enn, (255, 255, 0), (10, 10), 10)      #二つ目の変数(255, 0, 0)が色を表している
     enn.set_colorkey((0, 0, 0))
 
     tmr = 0                                             #ここまでゲームの初期化
@@ -22,7 +22,7 @@ def main():
         screen.blit(enn, [100, 400])
         pg.display.update()
         tmr += 1        
-        clock.tick(1)
+        clock.tick(1)                                   #一秒間に何while分まわるかを指示している（通常はとてつもない速さでwhile文が回っている。
 
 
 if __name__ == "__main__":                  #大切な部分。初期化と正常終了が明記されている
