@@ -9,13 +9,14 @@ def main():
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")            #imageモジュールのなかのload関数を利用して画像を読み込んでいる。戻り値はsurfaceクラス。練習1
     kk_img = pg.image.load("ex01/fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
+    kk_imgs = [kk_img, pg.transform.rotozoom(kk_img, 10, 1.0)]  #こうかとんsurfaceのリスト。練習3
     tmr = 0
     while True:                                         #無限ループ
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0]) 
-        #screen.blit(kk_img, (300, 200))                        #bg_imgをblit(貼り付けて)いる。座標をべた書きすると移動しない。.get.
+        screen.blit(kk_imgs[1], (300, 200))                        #bg_imgをblit(貼り付けて)いる。座標をべた書きすると移動しない。.get.
         pg.display.update()                                 #blitしたらapdateする。基本的にはwhile分の最後に入る
         tmr += 1        
         clock.tick(10)
