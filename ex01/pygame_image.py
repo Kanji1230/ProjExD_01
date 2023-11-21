@@ -14,12 +14,13 @@ def main():
     while True:                                         #無限ループ
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        screen.blit(bg_img, [0, 0]) 
+        x = tmr % 1600
+        screen.blit(bg_img, [-x , 0]) 
+        screen.blit(bg_img, [1600 - x, 0])
         screen.blit(kk_imgs[tmr % 2], (300, 200))                        #bg_imgをblit(貼り付けて)いる。座標をべた書きすると移動しない。.get.
         pg.display.update()                                 #blitしたらapdateする。基本的にはwhile分の最後に入る
         tmr += 1        
-        clock.tick(10)
+        clock.tick(100)
 
 
 if __name__ == "__main__":
