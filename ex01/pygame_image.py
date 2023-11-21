@@ -16,7 +16,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0]) 
-        screen.blit(kk_imgs[1], (300, 200))                        #bg_imgをblit(貼り付けて)いる。座標をべた書きすると移動しない。.get.
+        screen.blit(kk_imgs[tmr % 2], (300, 200))                        #bg_imgをblit(貼り付けて)いる。座標をべた書きすると移動しない。.get.
         pg.display.update()                                 #blitしたらapdateする。基本的にはwhile分の最後に入る
         tmr += 1        
         clock.tick(10)
